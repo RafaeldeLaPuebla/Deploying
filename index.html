@@ -1,0 +1,36 @@
+#Defino dos bloques, index, vas a rellenar la plantilla base y vas a rellenar los huecos que vayas encontrando.
+
+{% extends 'base.html' %}
+{% block title %} Página principal {% endblock %}
+{% block body %} 
+<h1>Criptobook</h1>
+<p>Listado de operaciones de compraventa de criptomonedas</p>
+<form action="nuevoregistro" method="get">
+    <table border="1">
+        <tr>
+            <th>Sel.</th>
+            <th>Fecha</th>
+            <th>Hora</th>
+            <th>Descripción</th>
+            <th>Moneda</th>
+            <th>U. Compradas</th>
+            <th>Moneda</th>
+            <th>U.Pagadas</th>
+        </tr>
+        {% for movimiento in movimientos %}
+        <tr>
+            <td><input type="radio" name="id" value="{{ movimiento['id'] }}"></td> #llave llave son datos
+            <td>{{movimiento['fecha']}}</td>
+            <td>{{movimiento['hora']}}</td>
+            <td>{{movimiento['descripcion']}}</td>
+            <td>{{movimiento['moneda_comprada']}}</td>
+            <td>{{movimiento['cantidad_comprada']}}</td>
+            <td>{{movimiento['moneda_pagada']}}</td>
+            <td>{{movimiento['cantidad_pagada']}}</td>
+        </tr>
+        {% endfor %} #las llaves con porcentajes son instruccione de yingya.
+    </table>
+
+    <input name="btnselected" type="submit" value="Nueva">
+
+{% endblock %}

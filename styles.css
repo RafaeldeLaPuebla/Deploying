@@ -1,0 +1,8 @@
+header, footer {
+    background-color: #33C3F0;
+    color: white;
+}
+
+.micontenido {
+    min-height: 400px
+}
